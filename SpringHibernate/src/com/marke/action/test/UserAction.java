@@ -88,12 +88,12 @@ public class UserAction {
 		try {
 			
 			flag = userService.addUser(user);
+			printWriter.print(flag);
 		} catch (DataIntegrityViolationException e) {
 			log.error(e.toString());
 			printWriter.print(false);
 			return;
 		}
-		printWriter.print(flag);
 		} catch (IOException e) {
 			log.error(e.getMessage());
 		}

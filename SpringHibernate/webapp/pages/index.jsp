@@ -32,7 +32,8 @@ $(function(){
 			    },
 			    success:function(data){
 			    	
-			        if (data==true){
+			    	var data0 = data == 'true' ? true : false; 
+			        if (data0){
 			        	$.messager.show({
 			        		    title:'注册成功',
 			    				msg:'注册成功！',
@@ -40,6 +41,7 @@ $(function(){
 			    				showType:'slide'});
 			    		$('#regest_modal').dialog('close');
 			    		$('#login_modal').dialog('open');
+			    		$('#regest_form').form("clear");
 			        	}else{
 			        		$.messager.show({
 			        		    title:'注册失败',
@@ -58,6 +60,7 @@ function reg(){
 	$.messager.confirm('Confirm','是否进行注册？',function(r){
 		if(r){
 			$('#regest_form').submit();
+			
 		}
 		});
 }
