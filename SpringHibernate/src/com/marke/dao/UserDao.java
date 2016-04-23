@@ -1,5 +1,6 @@
 package com.marke.dao;
 
+import java.io.Serializable;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -19,8 +20,15 @@ public class UserDao {
 
 	public boolean addUser(User user)
 	{
-		log.error( this.sessionFactory.getCurrentSession().save(user));
-		return this.sessionFactory.getCurrentSession().save(user) == null ? false:true;
+		
+		boolean flag = false;
+		try {
+			Serializable s = this.sessionFactory.getCurrentSession().save(user);
+			return s == null ? false:true;
+		} catch (Exception e) {
+			log.error(e.getMessage());
+			return flag;
+		}
 	}
 	
 	public boolean updateUserByUserId(User user)
