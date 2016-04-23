@@ -60,23 +60,23 @@ public class UserAction {
 		return "test2";
 	}
 	
-	public boolean addUser(HttpServletRequest request,HttpServletResponse response)
-	{
-		PrintWriter print = Helper.getPrintWriter(response, request);
-		String userName = request.getParameter("userName");
-		String passWord = request.getParameter("passWord");
-		User user = new User();
-		if (Helper.paramCheck(userName,passWord))
-		{
-			return false;
-			
-		}
-		user.setUserName(userName);
-		user.setPassWord(passWord);
-		user.setCreateDate(new Date());
-		
-		return userService.addUser(user);
-		
-	}
+//	public boolean addUser(HttpServletRequest request,HttpServletResponse response)
+//	{
+//		PrintWriter print = Helper.getPrintWriter(response, request);
+//		String userName = request.getParameter("userName");
+//		String passWord = request.getParameter("passWord");
+//		User user = new User();
+//		if (Helper.paramCheck(userName,passWord))
+//		{
+//			return false;
+//			
+//		}
+//		user.setUserName(userName);
+//		user.setPassWord(passWord);
+//		user.setCreateDate(new Date());
+//		
+//		return userService.addUser(user);
+//		
+//	}
 	
 }
