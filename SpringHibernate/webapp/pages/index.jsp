@@ -24,22 +24,43 @@
 <title>Insert title here</title>
 <script type="text/javascript">
 $(function(){
-	/* $("#regest_form").form({
-	            url:"${pageContext.request.contextPath}/user/userAction!addUser.action",
+	$("#regest_form").form({
+	            url:"/SpringHibernate/user/userAction!addUser.action",
 			    onSubmit: function(){
 			        //进行表单验证
 			        //如果返回false阻止提交
 			    },
 			    success:function(data){
-			        
+			    	
+			        if (data==true){
+			        	$.messager.show({
+			        		    title:'注册成功',
+			    				msg:'注册成功！',
+			    				timeout:5000,
+			    				showType:'slide'});
+			    		$('#regest_modal').dialog('close');
+			    		$('#login_modal').dialog('open');
+			        	}else{
+			        		$.messager.show({
+			        		    title:'注册失败',
+			    				msg:'注册失败，请检查参数',
+			    				timeout:5000,
+			    				showType:'slide'});
+			        	}
 			    }	
 	}
 	);
-	$("#regest_form").submit(); */
+	
 	
 });
 	
-
+function reg(){
+	$.messager.confirm('Confirm','是否进行注册？',function(r){
+		if(r){
+			$('#regest_form').submit();
+		}
+		});
+}
 </script>
 </head>
 <body class="easyui-layout">
@@ -78,10 +99,15 @@ $(function(){
 	</div>
 	<!-- 注册部分 -->
 	<div class="easyui-dialog" id='regest_modal'
-		data-options="title:'注册',modal:true,closed:true,buttons:[{text:'注册',iconCls:'icon-edit',handler:function(){}},
+		data-options="title:'注册',modal:true,closed:true,buttons:[{text:'注册',iconCls:'icon-edit',handler:function(){
+		
+		
+		
+		reg();
+
+		}},
 		{text:'取消',iconCls:'icon-cancel',handler:function(){
 		$('#regest_modal').dialog('close');
-		$('#regest_form').submit();
 		}}]"
 		style="width: 300px; height: 150px">
 		<form id='regest_form' action="" method="post">
