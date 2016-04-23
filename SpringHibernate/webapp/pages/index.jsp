@@ -24,7 +24,7 @@
 <title>Insert title here</title>
 <script type="text/javascript">
 $(function(){
-	$("#regest_form").form({
+	/* $("#regest_form").form({
 	            url:"${pageContext.request.contextPath}/user/userAction!addUser.action",
 			    onSubmit: function(){
 			        //进行表单验证
@@ -35,7 +35,7 @@ $(function(){
 			    }	
 	}
 	);
-	$("#regest_form").submit();
+	$("#regest_form").submit(); */
 	
 });
 	
@@ -84,7 +84,7 @@ $(function(){
 		$('#regest_form').submit();
 		}}]"
 		style="width: 300px; height: 150px">
-		<form id='regest_form' action="${pageContext.request.contextPath}//user//userAction!addUser.action" method="post">
+		<form id='regest_form' action="" method="post">
 		<table>
 			<tr>
 				<td>用户名：</td>
